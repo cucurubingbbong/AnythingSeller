@@ -25,7 +25,29 @@ public abstract class Item : MonoBehaviour
     /// </summary>
     public int count = 1;
 
+    /// <summary>
+    /// 아이템의 종류
+    /// </summary>
+    public ItemType itemType = ItemType.None;
 
+    /// <summary>
+    /// 현재 들고 있는지
+    /// </summary>
+    public bool isPick = false;
 
+    /// <summary>
+    /// 아이템 집기
+    /// </summary>
+    public virtual void PickUp()
+    {
+        isPick = true;
+    }
 
+    /// <summary>
+    /// 내려놓기
+    /// </summary>
+    public virtual void PutDown()
+    {
+        isPick = false;
+    }
 }
