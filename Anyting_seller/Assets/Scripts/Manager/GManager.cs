@@ -11,13 +11,37 @@ public class GManager : ManagerBase
     public ManagerBase[] managerBase;
 
     /// <summary>
+    /// 게임매니저
+    /// </summary>
+    public GameManager gameManager;
+
+    public static GManager Instance { get; private set; }
+
+    public override void Init()
+    {
+        base.Init();
+        if (Instance == null)
+        {
+            Instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+    }
+
+    /// <summary>
     /// 자신과 등록된 매니저를 모두 초기화합니다.
     /// </summary>
     void Awake()
     {
-        base.Init();
-
+        Init();
         foreach (ManagerBase managers in managerBase)
+        {
             managers.Init();
+        }
+
     }
 }
