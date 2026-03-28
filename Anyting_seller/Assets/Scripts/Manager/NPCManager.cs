@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class NPCManager : MonoBehaviour
 {
-    public float mood = 100;
+    public List<NPCData> allNPC;
+    public NPCData baseNpcData;
+    public bool haggleSuccessded = false;
+
+    public int trun = 0;
+    public int maxTurn = 12;
+
     public float currentMood = 0.0f;
 
     NPCState.EmotionState eState;
@@ -25,7 +31,7 @@ public class NPCManager : MonoBehaviour
 
     void SetEState()
     {
-        currentMood = Random.Range(40, 100);
+        currentMood = Random.Range(50, 100);
 
         if (currentMood >= 90)
             eState = NPCState.EmotionState.Happy;
@@ -35,10 +41,7 @@ public class NPCManager : MonoBehaviour
             eState = NPCState.EmotionState.SoSo;
         else if (currentMood >= 50)
             eState = NPCState.EmotionState.Normal;
-        else
-            eState = NPCState.EmotionState.ListLess;
         
-
         Debug.Log(eState);
     }
     void SetCState()

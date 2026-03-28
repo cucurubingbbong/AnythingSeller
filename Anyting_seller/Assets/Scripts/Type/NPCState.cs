@@ -12,8 +12,7 @@ public class NPCState : MonoBehaviour
         NotBad = 3,
         Angry = 4,
         Sad = 5,
-        ListLess = 6, //Listless: 기운이 하나도 없고 만사가 귀찮은 상태를 나타내는 형용사입니다.
-        SoSo = 7,
+        SoSo = 6,
     }
     EmotionState EState = EmotionState.None;
 
@@ -25,7 +24,7 @@ public class NPCState : MonoBehaviour
         Dirty = 3, // 노숙자
         Foreigner = 4, // 외국인
         Drunk = 5, // 술취한놈
-        Thrower = 6 // 물건던지는놈
+        Thrower = 6, // 물건던지는놈
     }
     CustomerType CState = CustomerType.None;
 }
